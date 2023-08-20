@@ -46,16 +46,25 @@ class _MyHomePageState extends State<MyHomePage> {
             ]
                 .map(
                   (transaction) => Card(
-                    child: Row(
-                      children: [
-                        Text(transaction.count.toString()),
-                        Column(
-                          children: [
-                            Text(transaction.name),
-                            Text(transaction.date),
-                          ],
-                        )
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              transaction.count.toString() + "руб.",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          VerticalDivider(),
+                          Column(
+                            children: [
+                              Text(transaction.name),
+                              Text(transaction.date),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )
