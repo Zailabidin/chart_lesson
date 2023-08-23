@@ -1,4 +1,6 @@
 import 'package:chart_lesson/Models/transaction.dart';
+import 'package:chart_lesson/Widgets/charts_list.dart';
+import 'package:chart_lesson/Widgets/tranactions_list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,14 +36,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            color: Colors.red,
-            child: Text("Charts"),
-          ),
+          ChartsList(),
+          TranactionsList(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {},
         child: const Icon(Icons.add),
       ),
     );

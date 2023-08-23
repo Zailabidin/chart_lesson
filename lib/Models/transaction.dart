@@ -13,19 +13,4 @@ class Transaction {
   }) {
     id = allID++;
   }
-  static List<Transaction> getMock() {
-    return [
-      Transaction(name: "Крассовки", count: 2500, date: "19.08.2023"),
-      Transaction(name: "Куртка", count: 5000, date: "17.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-      Transaction(name: "Вода", count: 50, date: "19.08.2023"),
-    ];
-  }
 }
