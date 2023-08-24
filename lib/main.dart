@@ -1,3 +1,4 @@
+import 'package:chart_lesson/Block/tranaction_bloc.dart';
 import 'package:chart_lesson/Models/transaction.dart';
 import 'package:chart_lesson/Widgets/charts_list.dart';
 import 'package:chart_lesson/Widgets/tranactions_list.dart';
@@ -12,9 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.purple,
+              secondary: Colors.amber,
+            ),
+      ),
     );
   }
 }
@@ -41,8 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+        onPressed: () {
+          setState(() {});
+          TransactionBloc().addTransaction(
+            Transaction(name: 'Бутерброд', count: 180, date: '23.08.2023'),
+          );
+        },
+        child: const Icon(
+          Icons.add,
+          color: Colors.black,
+        ),
       ),
     );
   }

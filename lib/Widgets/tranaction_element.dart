@@ -16,21 +16,26 @@ class TranactionElement extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(7.5),
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  border: Border.all(
-                    width: 2,
+                width: 110,
+                alignment: Alignment.center,
+                child: Container(
+                  padding: EdgeInsets.all(7.5),
+                  decoration: BoxDecoration(
                     color: Colors.purple,
+                    border: Border.all(
+                      width: 2,
+                      color: Colors.purple,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  transaction.count.toString() + "руб.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  child: Text(
+                    transaction.count.toStringAsFixed(2) + "руб.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Pacifico',
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -41,6 +46,7 @@ class TranactionElement extends StatelessWidget {
                   Text(
                     transaction.name,
                     style: TextStyle(
+                      fontFamily: 'Pacifico',
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
