@@ -6,8 +6,13 @@ class ChartsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
-      child: Text('Charts'),
+      margin: EdgeInsets.all(5),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(),
+        ),
+      ),
     );
   }
 }

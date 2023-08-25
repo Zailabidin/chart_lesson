@@ -1,3 +1,4 @@
+import 'package:chart_lesson/Block/tranaction_bloc.dart';
 import 'package:chart_lesson/Models/transaction.dart';
 import 'package:flutter/material.dart';
 
@@ -31,11 +32,7 @@ class TranactionElement extends StatelessWidget {
                   child: Text(
                     transaction.count.toStringAsFixed(2) + "руб.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Pacifico',
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
               ),
@@ -61,7 +58,19 @@ class TranactionElement extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              IconButton(
+                onPressed: () {
+                  TransactionBloc().deleteTranaction(transaction);
+                },
+                icon: Icon(
+                  Icons.delete,
+                  color: Theme.of(context).errorColor,
+                ),
+              ),
             ],
           ),
         ),

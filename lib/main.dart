@@ -22,6 +22,14 @@ class MyApp extends StatelessWidget {
               primary: Colors.purple,
               secondary: Colors.amber,
             ),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            fontFamily: 'Pacifico',
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontSize: 14,
+          ),
+        ),
       ),
     );
   }
@@ -39,7 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ChartApp"),
+        title: Text(
+          "ChartApp",
+          style: TextStyle(fontFamily: 'Pacifico'),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -55,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Transaction(name: 'Бутерброд', count: 180, date: '23.08.2023'),
           );
         },
-        child: const Icon(
+        child: Icon(
           Icons.add,
           color: Colors.black,
         ),
