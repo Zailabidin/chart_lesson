@@ -3,7 +3,7 @@ import 'package:chart_lesson/Models/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TranactionElement extends StatelessWidget {
-  Transaction transaction;
+  final Transaction transaction;
   TranactionElement({super.key, required this.transaction});
 
   @override
@@ -52,7 +52,7 @@ class TranactionElement extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    transaction.date,
+                    transaction.date.toString(),
                     style: TextStyle(
                       color: Colors.grey,
                     ),

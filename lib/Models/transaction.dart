@@ -2,7 +2,7 @@ class Transaction {
   late int id;
   String name;
   double count;
-  String date;
+  DateTime date;
 
   static int allID = 0;
 

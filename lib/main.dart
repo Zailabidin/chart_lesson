@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           setState(() {});
           TransactionBloc().addTransaction(
-            Transaction(name: 'Бутерброд', count: 180, date: '23.08.2023'),
+            Transaction(name: 'Бутерброд', count: 180, date: DateTime.now()),
           );
         },
         child: Icon(
