@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Transaction {
   late int id;
   String name;
@@ -13,4 +15,5 @@ class Transaction {
   }) {
     id = allID++;
   }
+  String get dateString => DateFormat('dd.MM.yyyy').format(date);
 }

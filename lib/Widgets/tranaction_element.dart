@@ -52,7 +52,7 @@ class TranactionElement extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    transaction.date.toString(),
+                    transaction.dateString,
                     style: TextStyle(
                       color: Colors.grey,
                     ),
