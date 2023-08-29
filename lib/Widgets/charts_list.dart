@@ -1,29 +1,21 @@
 import 'package:chart_lesson/Widgets/chart_element.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
-class ChartsList extends StatelessWidget {
+class ChartsList extends StatefulWidget {
   ChartsList({Key? key});
-//   List<Map<String,dynamic>> get groupedTransactionsValues => List.generate(
-//   7,
-//   (index) {
-//     final weekDay =Datetime.now().subtract(
-//       Duration (days: index)
-//     );
-//     var totalSum = 0.0;
-//     for (var transaction.date.day == weekDay.day &&
-//     transaction.date.month ==weekDay.month &&
-//     transaction.date.year == weekDay.year){
-//       totalSum += transaction.count;
 
-//     };
-//   };
+  @override
+  State<ChartsList> createState() => _ChartsListState();
+}
 
-// return {
-//     'day' :DateFormat.E('ru_RU').format(weekDaay),
-//     'amaunt':totalSum
-//   };
-//   };
-//   ).reversed.total();
+class _ChartsListState extends State<ChartsList> {
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting();
+  }
 
   List<Map<String, dynamic>> get groupedTransactionsValues {
     return List.generate(7, (index) {
@@ -36,9 +28,9 @@ class ChartsList extends StatelessWidget {
           totalSum += transaction['count'];
         }
       }
-      var DateFormat;
+
       return {
-        'day': DateFormat.E('ru_RU').format(weekDay),
+        'day': DateFormat.E().format(weekDay),
         'amount': totalSum,
       };
     }).reversed.toList();
@@ -51,9 +43,14 @@ class ChartsList extends StatelessWidget {
     // Добавьте остальные транзакции
   ];
 
-  // get transactions => null;
-
-  // get DateFormat => null;
+  double getTotalSpending(
+      List<Map<String, dynamic>> groupedTransactionsValues) {
+    double totalSpending = groupedTransactionsValues.fold(
+      0.0,
+      (double sum, Map<String, dynamic> element) => sum += element['amount'],
+    );
+    return totalSpending;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +60,12 @@ class ChartsList extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
-            children: [
-              ChartElement(
-                title: 'пон',
-                count: 300,
-                procentCount: 0.6,
-              ),
-            ],
+            children: groupedTransactionsValues
+                .map((date) => ChartElement(
+                    title: date['day'],
+                    count: date['amount'],
+                    procentCount: 0.1))
+                .toList(),
           ),
         ),
       ),
