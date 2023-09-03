@@ -1,5 +1,6 @@
 import 'package:chart_lesson/Block/tranaction_bloc.dart';
 import 'package:chart_lesson/Models/transaction.dart';
+import 'package:chart_lesson/Widgets/adding_form.dart';
 import 'package:chart_lesson/Widgets/charts_list.dart';
 import 'package:chart_lesson/Widgets/tranactions_list.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +16,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: const MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.purple,
         colorScheme: ThemeData().colorScheme.copyWith(
               primary: Colors.purple,
               secondary: Colors.amber,
             ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           headline1: TextStyle(
             fontFamily: 'Pacifico',
             fontWeight: FontWeight.bold,
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "ChartApp",
           style: TextStyle(fontFamily: 'Pacifico'),
         ),
@@ -61,9 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          //TODO: нужно вызвать форму добавление
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => const AddingForm(),
+          );
           setState(() {});
           TransactionBloc().addTransaction(
-            Transaction(name: 'Бутерброд', count: 180, date: DateTime.now()),
+            Transaction(
+              name: 'Бутерброд',
+              count: 180,
+              date: DateTime.now(),
+            ),
           );
         },
         child: Icon(

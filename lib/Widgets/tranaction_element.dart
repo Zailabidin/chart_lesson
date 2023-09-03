@@ -20,7 +20,7 @@ class TranactionElement extends StatelessWidget {
                 width: 110,
                 alignment: Alignment.center,
                 child: Container(
-                  padding: EdgeInsets.all(7.5),
+                  padding: const EdgeInsets.all(7.5),
                   decoration: BoxDecoration(
                     color: Colors.purple,
                     border: Border.all(
@@ -36,24 +36,24 @@ class TranactionElement extends StatelessWidget {
                   ),
                 ),
               ),
-              VerticalDivider(),
+              const VerticalDivider(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     transaction.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Pacifico',
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     height: 5,
                   ),
                   Text(
                     transaction.dateString,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                     ),
                   ),

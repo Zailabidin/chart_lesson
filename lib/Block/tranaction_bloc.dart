@@ -18,7 +18,6 @@ class TransactionBloc {
 
   List<Transaction> get transactions => _tranactions;
 
-  // get addTransaction => null;
   void Tranaction(Transaction transaction, {required String name}) {
     _tranactions.add(transaction);
     for (var element in _callBacks) {

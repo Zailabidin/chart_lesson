@@ -1,10 +1,11 @@
+import 'package:chart_lesson/Block/tranaction_bloc.dart';
 import 'package:chart_lesson/Widgets/chart_element.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 class ChartsList extends StatefulWidget {
-  ChartsList({Key? key});
+  ChartsList();
 
   @override
   State<ChartsList> createState() => _ChartsListState();
@@ -15,6 +16,9 @@ class _ChartsListState extends State<ChartsList> {
   void initState() {
     super.initState();
     initializeDateFormatting();
+    TransactionBloc().addCallBack(() {
+      setState(() {});
+    });
   }
 
   List<Map<String, dynamic>> get groupedTransactionsValues {
@@ -54,17 +58,23 @@ class _ChartsListState extends State<ChartsList> {
 
   @override
   Widget build(BuildContext context) {
+    var totalSpending = getTotalSpending(groupedTransactionsValues);
+
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: groupedTransactionsValues
-                .map((date) => ChartElement(
-                    title: date['day'],
-                    count: date['amount'],
-                    procentCount: 0.1))
+                .map(
+                  (date) => ChartElement(
+                      title: date['day'],
+                      count: date['amount'],
+                      procentCount: totalSpending == 0
+                          ? 0.0
+                          : date['amount'] / totalSpending),
+                )
                 .toList(),
           ),
         ),
