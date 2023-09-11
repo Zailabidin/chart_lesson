@@ -65,15 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //TODO: нужно вызвать форму добавление
           showModalBottomSheet(
             context: context,
-            builder: (context) => const AddingForm(),
-          );
-          setState(() {});
-          TransactionBloc().addTransaction(
-            Transaction(
-              name: 'Бутерброд',
-              count: 180,
-              date: DateTime.now(),
-            ),
+            builder: (context) => AddingForm(),
           );
         },
         child: Icon(
